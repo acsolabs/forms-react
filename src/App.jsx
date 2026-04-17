@@ -1,5 +1,13 @@
+import Nav from "./components/Nav";
+import Home from "./pages/Home";
+import "./styles/app.css";
 const App = () => {
-  return <div></div>;
+  return (
+    <>
+      <Nav />
+      <Home />;
+    </>
+  );
 };
 
 export default App;
