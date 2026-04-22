@@ -1,14 +1,14 @@
 import Nav from "../components/Nav";
 
-const NewTechno = () => {
+const NewTechno = ({ handleSubmit, handleNewTechno }) => {
   return (
     <>
       <div className="techno-add">
         <h1>Ajouter une Nouvelle Techno </h1>
-        <form action="">
+        <form action="" onSubmit={handleSubmit}>
           <label htmlFor="techno-name">Nom :</label>
           <br />
-          <input type="text" name="techno-name" />
+          <input type="text" name="techno-name" onChange={handleNewTechno} />
           <br />
           <label htmlFor="techno-category">Catégorie :</label>
           <br />
@@ -28,7 +28,8 @@ const NewTechno = () => {
             cols="30"
             rows="10"
           ></textarea>
-          cols="30" rows="10" <input type="submit" value="Ajouter" />
+          <br />
+          <input type="submit" value="Ajouter" />
         </form>
       </div>
     </>
