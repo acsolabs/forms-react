@@ -1,18 +1,25 @@
+import { useState } from "react";
 import Nav from "../components/Nav";
 
-const NewTechno = ({ handleSubmit, handleNewTechno }) => {
+const NewTechno = ({ handleNewTechno }) => {
+  const [techno, setTechno] = useState({});
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleNewTechno(techno);
+  };
   return (
     <>
       <div className="techno-add">
         <h1>Ajouter une Nouvelle Techno </h1>
-        <form action="" onSubmit={handleSubmit}>
-          <label htmlFor="techno-name">Nom :</label>
+        <form action="" onSubmit={(e) => handleSubmit(e)}>
+          <label htmlFor="technoName">Nom :</label>
           <br />
-          <input type="text" name="techno-name" onChange={handleNewTechno} />
+          <input type="text" name="technoName" onChange={handleNewTechno} />
           <br />
-          <label htmlFor="techno-category">Catégorie :</label>
+          <label htmlFor="technoCategory">Catégorie :</label>
           <br />
-          <select name="techno-category" id="techno-category">
+          <select name="technoCategory" id="techno-category">
             <option value="">Selectionner une catégorie</option>
             <option value="front">Front</option>
             <option value="back">Back</option>
@@ -29,7 +36,7 @@ const NewTechno = ({ handleSubmit, handleNewTechno }) => {
             rows="10"
           ></textarea>
           <br />
-          <input type="submit" value="Ajouter" />
+          <input type="submit" value="Ajouter" className="btn" />
         </form>
       </div>
     </>
